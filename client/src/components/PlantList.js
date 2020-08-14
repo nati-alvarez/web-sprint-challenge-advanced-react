@@ -15,7 +15,9 @@ export default class PlantList extends Component {
   //   - set the returned plants array to this.state.plants
   componentDidMount(){
     axios.get("http://localhost:3333/plants").then(({data})=>{
-      console.log(data);
+      this.setState({
+        plants: data.plantsData
+      })
     }).catch(err=>{
       console.log(err);
     })
