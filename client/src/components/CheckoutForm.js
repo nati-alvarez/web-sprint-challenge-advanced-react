@@ -17,15 +17,14 @@ const initialValue = {
 
 const CheckoutForm = (props) => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [values, updateValues, handleSubmit] = useForm(initialValue);
-
   const submit = () => {
     setShowSuccessMessage(true);
   };
+  const [values, updateValues, handleSubmit] = useForm(initialValue, submit);
 
   return (
     <>
-      <form onSubmit={(e)=> handleSubmit(e, submit)}>
+      <form onSubmit={handleSubmit}>
         <h2>Checkout Form</h2>
         <label>
           First Name:
